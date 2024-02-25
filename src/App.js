@@ -19,6 +19,7 @@ function App() {
     e.preventDefault();
     if (!firstName || !lastName) {
       setError("Please enter both first name and last name.");
+      setFullName("");
     } else {
       const fullName = `${firstName} ${lastName}`;
       setFullName(fullName);
@@ -29,6 +30,7 @@ function App() {
   return (
     <form className="App" onSubmit={handleSubmit}>
       <h1>Full Name Display</h1>
+      {error && <div className="error">{error}</div>}
       <div>
         <label htmlFor="firstName">First Name: </label>
         <input
@@ -50,7 +52,6 @@ function App() {
         />
       </div>
       <button type="submit">Submit</button>
-      {error && <div className="error">{error}</div>}
       {fullName && <div>Full Name: {fullName}</div>}
     </form>
   );
