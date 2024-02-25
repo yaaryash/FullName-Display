@@ -5,6 +5,7 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [fullName, setFullName] = useState("");
+  const [error, setError] = useState("");
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -16,8 +17,13 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const fullName = `${firstName} ${lastName}`;
-    setFullName(fullName);
+    if (!firstName || !lastName) {
+      setError("Please enter both first name and last name.");
+    } else {
+      const fullName = `${firstName} ${lastName}`;
+      setFullName(fullName);
+      setError("");
+    }
   }
 
   return (
@@ -26,7 +32,6 @@ function App() {
       <div>
         <label htmlFor="firstName">First Name: </label>
         <input
-          required
           type="text"
           id="firstName"
           name="firstName"
@@ -37,7 +42,6 @@ function App() {
       <div>
         <label htmlFor="lastName">Last Name: </label>
         <input
-          required
           type="text"
           id="lastName"
           name="lastName"
@@ -46,6 +50,7 @@ function App() {
         />
       </div>
       <button type="submit">Submit</button>
+      {error && <div className="error">{error}</div>}
       {fullName && <div>Full Name: {fullName}</div>}
     </form>
   );
