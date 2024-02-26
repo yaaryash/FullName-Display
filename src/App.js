@@ -26,7 +26,7 @@ function App() {
       <h1>Full Name Display</h1>
 
       <div>
-        <label htmlFor="firstName">First Name: </label>
+        <label htmlFor="firstName">First Name:</label>
         <input
           required
           type="text"
@@ -37,7 +37,7 @@ function App() {
         />
       </div>
       <div>
-        <label htmlFor="lastName">Last Name: </label>
+        <label htmlFor="lastName">Last Name:</label>
         <input
           required
           type="text"

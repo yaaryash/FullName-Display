@@ -1,5 +1,6 @@
 .App {
   font-family: sans-serif;
+  margin-left: 20px;
 }
 
 .App-logo {
@@ -35,4 +36,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+button {
+  margin-bottom: 10px;
 }
